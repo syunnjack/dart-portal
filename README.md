@@ -1,7 +1,17 @@
 # dart-portal
 
-ダーツプロ総合アフィリエイトサイトの MVP バックエンド。  
-イベント情報の自動収集と、推しプロ × イベント × ギアのレコメンド API を提供します。
+ダーツプロ・イベント・店舗・ギアを横断して探せる FastAPI ベースの MVP です。
+イベント収集スクリプト、一覧・詳細 API、推しプロに合わせたおすすめ生成をまとめています。
+
+## 主な機能
+
+- プロ一覧・詳細
+- イベント一覧・詳細
+- 店舗一覧・詳細
+- ギア一覧・詳細
+- 推しプロ × イベント × ギアのおすすめ生成
+- 予算ベースのオファー生成
+- 神戸六甲ボウルのイベントスクレイピング
 
 ## セットアップ
 
@@ -25,7 +35,9 @@ python -m venv .venv
 ```
 
 - Swagger UI: http://127.0.0.1:8765/docs
-- レコメンド API: `POST /offers`
+- ヘルスチェック: `GET /health`
+- おすすめ生成: `POST /recommendations`
+- オファー生成: `POST /offers`
 
 ### リクエスト例
 
@@ -35,6 +47,12 @@ python -m venv .venv
   "favorite_pro_ids": [101],
   "budget": 20000
 }
+```
+
+## 検証
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest discover -s tests
 ```
 
 ## 設計書
